@@ -1,16 +1,17 @@
+<h1 class="panel-title">Java Test</h1>
 <!-- Add employee form-->
-
+<h3 class="panel-title">Add Employee</h3>
 <form #miFormulario="ngForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" [(ngModel)]="employeeAdd.name" required>
-
     <label for="numb">Employee number:</label>
     <input type="number" id="numb" name="numb" [(ngModel)]="employeeAdd.number" required>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="employeeAdd.name" required>
 
     <label for="age">Age:</label>
     <input type="number" id="age" name="age" [(ngModel)]="employeeAdd.age" required>
 
-    <button type="submit" (click)="addEmployee()">Save</button>
+    <button type="submit" (click)="addEmployee()">Add</button>
 </form>
 
 
@@ -27,20 +28,11 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr *ngFor="let employee of employees">
-                    <td>{{employee.number}}</td>
-                    <td>{{employee.name}}</td>
-                    <td>{{employee.age}}</td>
-                    <td>
-                        <button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-danger" (click)="deleteEmployee(employee.number)">Delete</button>
-                    </td>
-                </tr> -->
                 <tr *ngFor="let item of employees; let i = index">
                     <form #miFormulario="ngForm" (ngSubmit)="editEmployee(i)">
-                        <label for="nomb{{i}}">Number:</label>
-                        <input type="number" id="nomb{{i}}" name="nomb" [(ngModel)]="item.number" required>
-        
+                        <label for="nomb{{i}}">Employee number:</label>
+                        <input type="number" id="nomb{{i}}" name="nomb" [(ngModel)]="item.number" disabled>
+
                         <label for="nombre{{i}}">Name:</label>
                         <input type="text" id="nombre{{i}}" name="nombre" [(ngModel)]="item.name" required>
 
