@@ -1,1 +1,30 @@
-<p>crud works!</p>
+
+
+
+<!-- List employees -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">List employees</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Name</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{employee.number}}</td>
+          <td>{{employee.name}}</td>
+          <td>{{employee.age}}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editEmployee(employee)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteEmployee(employee.number)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
