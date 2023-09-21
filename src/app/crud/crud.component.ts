@@ -18,9 +18,11 @@ export class CrudComponent {
     this.loadEmployees();
   }
 
-  editEmployee(employee: any) {
+  editEmployee(index: number) {
+    const employee = this.employees[index];
     this.employeeService.updateEmployee(employee).subscribe((data: any) => {
       console.log(data);
+      this.loadEmployees();
     });
   }
 
