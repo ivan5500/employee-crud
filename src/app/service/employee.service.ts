@@ -17,6 +17,8 @@ export class EmployeeService {
 
   // post method
   addEmployee(employee: Employee) {
+    console.log(employee);
+    
     return this.http.post(this.urlApi, employee);
   }
 

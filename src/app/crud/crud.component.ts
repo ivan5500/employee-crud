@@ -9,6 +9,7 @@ import { Employee } from '../model/employee';
 })
 export class CrudComponent {
   public employees: Employee[] = [];
+  public employeeAdd: Employee = { name: '', number: 0, age: 0};
 
   constructor(private employeeService: EmployeeService) {
   }
@@ -26,14 +27,25 @@ export class CrudComponent {
   deleteEmployee(id: number) {
     this.employeeService.deleteEmployee(id).subscribe((data: any) => {
       console.log(data);
-      this.loadEmployees
+      this.loadEmployees();
+    });
+  }
+
+  addEmployee() {
+    this.employeeService.addEmployee(this.employeeAdd).subscribe((data: any) => {
+      console.log(data);
+      this.employeeAdd = { name: '', number: 0, age: 0};
+      this.loadEmployees();
     });
   }
 
   loadEmployees() {
     this.employeeService.getEmployees().subscribe((data: any) => {
+      console.log("Obteniendo empleados");
+      console.log(data);
       this.employees = data;
     });
   }
+
 
 }

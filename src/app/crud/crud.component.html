@@ -1,30 +1,43 @@
+<!-- Add employee form-->
 
+<form #miFormulario="ngForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="employeeAdd.name" required>
+
+    <label for="numb">Employee number:</label>
+    <input type="number" id="numb" name="numb" [(ngModel)]="employeeAdd.number" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" [(ngModel)]="employeeAdd.age" required>
+
+    <button type="submit" (click)="addEmployee()">Save</button>
+</form>
 
 
 <!-- List employees -->
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">List employees</h3>
-  </div>
-  <div class="panel-body">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Number</th>
-          <th>Name</th>
-          <th>Age</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let employee of employees">
-          <td>{{employee.number}}</td>
-          <td>{{employee.name}}</td>
-          <td>{{employee.age}}</td>
-          <td>
-            <button class="btn btn-primary" (click)="editEmployee(employee)">Edit</button>
-            <button class="btn btn-danger" (click)="deleteEmployee(employee.number)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="panel-heading">
+        <h3 class="panel-title">List employees</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees">
+                    <td>{{employee.number}}</td>
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.age}}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="editEmployee(employee)">Edit</button>
+                        <button class="btn btn-danger" (click)="deleteEmployee(employee.number)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
